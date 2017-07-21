@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>ELAR Test Project</title>
+</head>
+<body>
+<div>
+    <div th:if="${session[SPRING_SECURITY_LAST_EXCEPTION] != null}">
+        <div class="error" th:text="${session[SPRING_SECURITY_LAST_EXCEPTION].message}"></div>
+    </div>
+    <form th:action="@{/login}" method="post">
+        <table>
+            <tr>
+                <td>Логин:</td>
+                <td>
+                    <label>
+                        <input name='username'/>
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td>Пароль:</td>
+                <td>
+                    <label>
+                        <input type='password' name='password'/>
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td colspan='2'><input name="submit" type="submit" value="Войти"/></td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>
