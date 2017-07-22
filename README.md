@@ -1,9 +1,6 @@
 # Тестовое задание
 
-## Инструкция
-
- 1. Для запуска приложения нужно указать найтроки БД PostgreSQL в application.yml
- 2. Создать таблицу используя скрипт init.sql
+Spring Boot, Spring Security, H2, Hibernate, Flyway, Lombok, Thymeleaf
 
 ## Пользователи
 
