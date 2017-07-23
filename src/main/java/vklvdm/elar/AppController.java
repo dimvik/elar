@@ -20,9 +20,9 @@ public class AppController {
 
     @RequestMapping("/success")
     public String success(Model model) {
-        final Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        final User authenticatedUser = (User) auth.getPrincipal();
-        model.addAttribute("username", authenticatedUser.getName());
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        User user = (User) auth.getPrincipal();
+        model.addAttribute("username", user.getName());
         return "success";
     }
 }

@@ -1,8 +1,12 @@
 package vklvdm.elar.model;
 
 import lombok.Data;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 import javax.persistence.*;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * Сущность пользователя
@@ -21,6 +25,9 @@ public class User {
     private String login;
 
     private String name;
+
+    @Transient
+    private final List<GrantedAuthority> authorities = Collections.singletonList(new SimpleGrantedAuthority("ROLE_USER"));
 
     @Transient
     private String password;

@@ -19,6 +19,7 @@ import vklvdm.elar.services.PasswordService;
 import vklvdm.elar.services.UserService;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -53,11 +54,8 @@ public class UserAuthenticationProvider implements AuthenticationProvider {
         //Проверяем пароль
         if (!passwordService.checkPass(password, user.getPassword())) throw new BadCredentialsException("Неверный пароль");
 
-        final List<GrantedAuthority> grantedAuths = new ArrayList<>();
-        grantedAuths.add(new SimpleGrantedAuthority("ROLE_USER"));
-
         log.info("Вошел пользователь - {}", login);
-        return new UsernamePasswordAuthenticationToken(user, password, grantedAuths);
+        return new UsernamePasswordAuthenticationToken(user, password, user.getAuthorities());
     }
 
     @Override
